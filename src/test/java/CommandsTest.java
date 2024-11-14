@@ -10,7 +10,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.time.Duration;
+
 import static ge.tbcitacademy.data.Constants.*;
+
 public class CommandsTest {
     WebDriver driver;
     @BeforeClass
@@ -23,30 +25,39 @@ public class CommandsTest {
 
     @Test
     public void test01() {
+        WebElement textField = driver.findElement(By.xpath("//*[@id=\"input-example\"]/input"));
+        Assert.assertFalse(textField.isEnabled());
         WebElement button = driver.findElement(By.xpath("//*[@id=\"input-example\"]/button"));
+        String buttonTextEnable = button.getText();
+        Assert.assertEquals(buttonTextEnable, buttonEnableText);
         button.click();
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
         WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("message")));
+        Assert.assertTrue(textField.isEnabled());
+        String message = successMessage.getText();
+
         Assert.assertTrue(successMessage.isDisplayed());
+        Assert.assertEquals(message, enableMessage);
 
-        String buttonText = button.getText();
-        Assert.assertEquals(buttonText, buttonDisabledText, "button text is not correct");
+        String buttonTextDisable = button.getText();
+        Assert.assertEquals(buttonTextDisable, buttonDisabledText);
 
-        WebElement textField = driver.findElement(By.xpath("//*[@id=\"input-example\"]/input"));
         textField.sendKeys(inputTextExample);
+        textField.clear();
+        Assert.assertTrue(textField.getText().isEmpty());
 
         WebElement headingElement = driver.findElement(By.tagName("h4"));
         String headingElementText = headingElement.getText();
-        Assert.assertEquals(headingElementText,mainHeadingTitle, "Heading title is not correct" );
+        Assert.assertEquals(headingElementText,mainHeadingTitle );
 
         WebElement headingDescription = driver.findElement(By.xpath("//*[@id=\"content\"]/div[1]/p"));
         String headingDescriptionActualText = headingDescription.getText();
-        Assert.assertEquals(headingDescriptionActualText, mainHeadingDescription, "Heading message is not correct" );
+        Assert.assertEquals(headingDescriptionActualText, mainHeadingDescription);
     }
 
     @AfterClass
-    public void tearDown() throws InterruptedException {
-        Thread.sleep(4000);
+    public void tearDown(){
         driver.quit();
     }
 }

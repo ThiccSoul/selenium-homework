@@ -3,10 +3,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import java.time.Duration;
+
 import static ge.tbcitacademy.data.Constants.ultimateQaConsultingPage;
 import static ge.tbcitacademy.data.Constants.ultimateQaPage;
 
@@ -23,22 +27,20 @@ public class NavigationTest {
     }
 
     @Test
-    public void test03() throws InterruptedException {
-        WebElement link1 = driver.findElement(By.xpath("(//*[@id='menu-item-218392'])[1]"));
+    public void test03() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
+        WebElement link1 = driver.findElement(By.xpath("//*[text()='Services']"));
         link1.click();
-        // without sleep sometimes url won't be grabbed
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.urlToBe(ultimateQaConsultingPage));
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals(currentUrl, ultimateQaConsultingPage, "wrong url is displayed");
+        Assert.assertEquals(currentUrl, ultimateQaConsultingPage);
         driver.navigate().back();
-        Thread.sleep(2000);
         String currentUrl2 = driver.getCurrentUrl();
-        Assert.assertEquals(currentUrl2, ultimateQaPage, "wrong url is displayed for sure");
+        Assert.assertEquals(currentUrl2, ultimateQaPage);
     }
 
     @AfterClass
-    public void tearDown () throws InterruptedException {
-        Thread.sleep(4000);
+    public void tearDown () {
         driver.quit();
     }
 

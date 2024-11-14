@@ -30,18 +30,17 @@ public class WebElementTest {
         String draggableValueA = columnA.getAttribute(draggableAttribute);
         String draggableValueB = columnB.getAttribute(draggableAttribute);
 
-        Assert.assertEquals(draggableValueA, "true", "this element is not draggable");
-        Assert.assertEquals(draggableValueB, "true", "this element is not draggable");
+        Assert.assertEquals(draggableValueA, "true");
+        Assert.assertEquals(draggableValueB, "true");
 
         WebElement link1 = driver.findElement(By.linkText("Elemental Selenium"));
         String hrefValue = link1.getAttribute("href");
 
-        Assert.assertEquals(hrefValue, elementalSeleniumPage, "Link is not correct");
+        Assert.assertEquals(hrefValue, elementalSeleniumPage);
     }
 
     @AfterClass
-    public void tearDown () throws InterruptedException {
-        Thread.sleep(4000);
+    public void tearDown (){
         driver.quit();
     }
 }
