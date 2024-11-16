@@ -16,7 +16,7 @@ public class WebElementTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(dragAndDropPage);
+        driver.get(DRAG_AND_DROP_PAGE);
     }
 
     @Test
@@ -27,8 +27,8 @@ public class WebElementTest {
         int locationOfColumnB = columnB.getLocation().getY();
         Assert.assertEquals(locationOfColumnA, locationOfColumnB, "these bad boys doesn't match");
 
-        String draggableValueA = columnA.getAttribute(draggableAttribute);
-        String draggableValueB = columnB.getAttribute(draggableAttribute);
+        String draggableValueA = columnA.getAttribute(DRAGGABLE_ATTRIBUTE);
+        String draggableValueB = columnB.getAttribute(DRAGGABLE_ATTRIBUTE);
 
         Assert.assertEquals(draggableValueA, "true");
         Assert.assertEquals(draggableValueB, "true");
@@ -36,7 +36,7 @@ public class WebElementTest {
         WebElement link1 = driver.findElement(By.linkText("Elemental Selenium"));
         String hrefValue = link1.getAttribute("href");
 
-        Assert.assertEquals(hrefValue, elementalSeleniumPage);
+        Assert.assertEquals(hrefValue, ELEMENTAL_SELENIUM_PAGE);
     }
 
     @AfterClass

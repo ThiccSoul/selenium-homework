@@ -11,8 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.time.Duration;
 
-import static ge.tbcitacademy.data.Constants.ultimateQaConsultingPage;
-import static ge.tbcitacademy.data.Constants.ultimateQaPage;
+import static ge.tbcitacademy.data.Constants.*;
 
 public class NavigationTest {
 
@@ -23,7 +22,7 @@ public class NavigationTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(ultimateQaPage);
+        driver.get(ULTIMATE_QA_PAGE);
     }
 
     @Test
@@ -31,12 +30,12 @@ public class NavigationTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
         WebElement link1 = driver.findElement(By.xpath("//*[text()='Services']"));
         link1.click();
-        wait.until(ExpectedConditions.urlToBe(ultimateQaConsultingPage));
+        wait.until(ExpectedConditions.urlToBe(ULTIMATE_QA_CONSULTING_PAGE));
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals(currentUrl, ultimateQaConsultingPage);
+        Assert.assertEquals(currentUrl, ULTIMATE_QA_CONSULTING_PAGE);
         driver.navigate().back();
         String currentUrl2 = driver.getCurrentUrl();
-        Assert.assertEquals(currentUrl2, ultimateQaPage);
+        Assert.assertEquals(currentUrl2, ULTIMATE_QA_PAGE);
     }
 
     @AfterClass
