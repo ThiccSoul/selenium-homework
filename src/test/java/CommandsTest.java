@@ -20,7 +20,7 @@ public class CommandsTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(dynamicControlsPage);
+        driver.get(DYNAMIC_CONTROLS_PAGE);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class CommandsTest {
         Assert.assertFalse(textField.isEnabled());
         WebElement button = driver.findElement(By.xpath("//*[@id=\"input-example\"]/button"));
         String buttonTextEnable = button.getText();
-        Assert.assertEquals(buttonTextEnable, buttonEnableText);
+        Assert.assertEquals(buttonTextEnable,  BUTTON_ENABLE_TEXT);
         button.click();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
@@ -38,22 +38,22 @@ public class CommandsTest {
         String message = successMessage.getText();
 
         Assert.assertTrue(successMessage.isDisplayed());
-        Assert.assertEquals(message, enableMessage);
+        Assert.assertEquals(message, ENABLE_MESSAGE);
 
         String buttonTextDisable = button.getText();
-        Assert.assertEquals(buttonTextDisable, buttonDisabledText);
+        Assert.assertEquals(buttonTextDisable, BUTTON_DISABLED_TEXT);
 
-        textField.sendKeys(inputTextExample);
+        textField.sendKeys(INPUT_TEXT_EXAMPLE);
         textField.clear();
         Assert.assertTrue(textField.getText().isEmpty());
 
         WebElement headingElement = driver.findElement(By.tagName("h4"));
         String headingElementText = headingElement.getText();
-        Assert.assertEquals(headingElementText,mainHeadingTitle );
+        Assert.assertEquals(headingElementText,MAIN_HEADING_TITLE );
 
         WebElement headingDescription = driver.findElement(By.xpath("//*[@id=\"content\"]/div[1]/p"));
         String headingDescriptionActualText = headingDescription.getText();
-        Assert.assertEquals(headingDescriptionActualText, mainHeadingDescription);
+        Assert.assertEquals(headingDescriptionActualText, MAIN_HEADING_TITLE);
     }
 
     @AfterClass
