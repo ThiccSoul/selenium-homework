@@ -51,7 +51,51 @@ public class Constants {
             DRAG_AND_DROP_PAGE = "http://the-internet.herokuapp.com/drag_and_drop",
             DRAGGABLE_ATTRIBUTE = "draggable",
             ELEMENTAL_SELENIUM_PAGE = "http://elementalselenium.com/";
+
+
+    //          FormsTest
+    public static final String
+            CUSTOM_DROPDOWN_PAGE = "https://tympanus.net/Tutorials/CustomDropDownListStyling/index2.html",
+            DEMO_BTN_XPATH = ".//a[text()='Demo 2']",
+            UL_LIST_RELATIVE_XPATH = "./ul[@class='dropdown']";
+
+    //          nativeDropDownTest
+    public static final String
+            REGISTER_FORM_PAGE = "https://techcanvass.com/examples/register.html",
+            MALE_RADIO_BUTTON_XPATH = ".//input[@value='male']",
+            MODEL_DROPDOWN_XPATH = "select[name='model']",
+            inputAddress1_XPATH = "//input[@type='text' and @value='Address1']",
+            INPUTADDRESS2_XPATH = "//input[@type='text' and @value='Address2']",
+            INPUTCITY_XPATH = ".//input[@value='City']",
+            INPUT_CONTACT1_XPATH = ".//input[@value='Contact1']",
+            INPUT_CONTACT2_XPATH = ".//input[@value='Contact2']",
+            DELIVERY_XPATH = ".//input[@value='Yes']",
+            SUBMIT_XPATH = ".//input[@type='submit']";
+
+
+    //          WaitTests
+    public static final String
+            ENABLE_BUTTON_XPATH = "//*[@id=\"input-example\"]/button",
+            PROGRESS_BAR_XPATH = ".//*[@id='loading']",
+            INPUT_FIELD_XPATH = "//*[@id=\"input-example\"]/input";
+
+    public static final String
+            TOOLS_QA_PAGE = "https://demoqa.com/progress-bar";
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
+
 
 
 
