@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class HelperFunctions {
 
-    public static void universalSelector(Object element, String visibleText) {
+    public static void universalSelector(Object element, String visibleText) {    System.out.println("I AM A FIX");
         if(element instanceof Select) {
             ((Select) element).selectByVisibleText(visibleText);
         } else if (element instanceof WebElement) {
