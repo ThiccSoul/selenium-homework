@@ -5,7 +5,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public class HelperFunctions {
     public static void universalSelector(Object element, String visibleText) {
-        System.out.println("I AM A CHANGE MEANWHILE");
         if(element instanceof Select) {
             ((Select) element).selectByVisibleText(visibleText);
         } else if (element instanceof WebElement) {
