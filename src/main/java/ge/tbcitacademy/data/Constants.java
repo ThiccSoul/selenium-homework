@@ -1,6 +1,13 @@
 package ge.tbcitacademy.data;
 
+import java.util.UUID;
+
 public class Constants {
+    //          CrossBrowser
+
+    public static final int
+            WAIT_LONG_SECONDS = 15,
+            WAIT_SHORT_MILSECONDS = 500;
 
     //          CommandsTest
     public static final String
@@ -79,6 +86,21 @@ public class Constants {
 
     public static final String
             DEMOQA_ALERTS_PAGE = "https://demoqa.com/alerts";
+
+    //      for cookie injection
+    public static final String[] COOKIE_NAMES = {"sessionID", "user_token", "cart_id", "auth_key", "tracking_id", "promo_code", "lang_pref", "theme", "cookie_consent", "user_preferences"};
+    public static final String[] COOKIE_VALUES = {UUID.randomUUID().toString(), "abc123xyz!@#token", "ecom_cart_56789", "auth_90210_abcd", "track-101112-uuid-xyz", "PROMO20OFF", "en-US", "true1", "tru2e", "101112"};
+
+    //      CookiesTest
+
+    public static final String
+            CONTAINING_WORDS_NAME = "active_template",
+            CONTAINING_WORDS_VALUE = "pub_site",
+            COMPLETE_READY_STATE = "return document.readyState == 'complete'",
+            AUTOCOMPLETE_PAGE = "https://demo.automationtesting.in/AutoComplete.html",
+            HIDDENSTATUS_XPATH = "//span[@role='status']",
+            SEARCHFIELD_ID = "searchbox",
+            SELECTED_ITEM_XPATH = "//div[@class='ui-autocomplete-multiselect-item']";
 
 
     //      techListicTableTest1

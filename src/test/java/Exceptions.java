@@ -1,4 +1,5 @@
 import baseConfig.BaseClass;
+import baseConfig.CrossBrowserTesting;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.MoveTargetOutOfBoundsException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -6,8 +7,8 @@ import org.testng.annotations.Test;
 
 import static ge.tbcitacademy.data.Constants.*;
 
-public class Exceptions extends BaseClass {
-    @Test
+public class Exceptions extends CrossBrowserTesting {
+    @Test(priority = 4)
     public void InvalidSelectorException() {
         driver.get(QA_TOUCH_PAGE);
         try {
@@ -18,7 +19,7 @@ public class Exceptions extends BaseClass {
         }
     }
 
-    @Test
+    @Test(priority = 5)
     public void NoSuchWindowException() {
         driver.get(WEBDRIVER_UNI_PAGE);
         try {
@@ -29,10 +30,10 @@ public class Exceptions extends BaseClass {
         }
     }
 
-    @Test
+    @Test(priority = 6)
     public void StaleElementReferenceException() {
         driver.get(MYHOME_PAGE);
-        WebElement help = driver.findElement(By.xpath(HELP_BTN_XPATH));
+        WebElement help = waitLong.until(ExpectedConditions.presenceOfElementLocated(By.xpath(HELP_BTN_XPATH)));
         WebElement fromDevelopers = driver.findElement(By.xpath(FROM_DEVELOPERS_BTN_XPATH));
         try {
 //           დახმარების გვერდზე გადავდივარ სადაც ღილაკი "ბინები დეველოპერებისგან" აღარ არსებობს, შესაბამიოსად გამოაქვს StaleElementReferenceException
@@ -43,20 +44,20 @@ public class Exceptions extends BaseClass {
         }
     }
 
-    @Test
+    @Test(priority = 7)
     public void TimeoutException() {
         driver.get(SELENIUM_PAGE);
         WebElement adderButton = driver.findElement(By.id("adder"));
         adderButton.click();
         try {
  //           until ქონდიშენი სანამ შესრულდება shortWait იქამდე გადის, შესაბამისად გამოდის TimeoutException
-            WebElement redBox = shortWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(RED_BOX_XPATH)));
+            WebElement redBox = waitShort.until(ExpectedConditions.presenceOfElementLocated(By.xpath(RED_BOX_XPATH)));
         } catch (TimeoutException e) {
             System.out.println(e.getClass().getName());
         }
     }
 
-    @Test
+    @Test(priority = 8)
     public void NoSuchElementException() {
         driver.get(HEROKUAPP_DROPDOWN_PAGE);
         try {
@@ -67,7 +68,7 @@ public class Exceptions extends BaseClass {
         }
     }
 
-    @Test
+    @Test(priority = 9)
     public void NoSuchFrameException() {
         driver.get(SELENIUM_FRAME_PAGE);
         WebElement iframe = driver.findElement(By.id("ifr"));
@@ -79,7 +80,7 @@ public class Exceptions extends BaseClass {
         }
     }
 
-    @Test
+    @Test(priority = 10)
     public void MoveTargetOutOfBoundsException() {
         driver.get(FORUM_PAGE);
         try {
@@ -90,7 +91,7 @@ public class Exceptions extends BaseClass {
         }
     }
 
-    @Test
+    @Test(priority = 11)
     public void NoSuchSessionException() {
         driver.get(BLIZZARD_PAGE);
         WebElement mobileButton = driver.findElement(By.xpath(MOBILE_BTN_XPATH));
