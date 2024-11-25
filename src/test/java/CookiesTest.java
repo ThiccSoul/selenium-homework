@@ -64,5 +64,7 @@ public class CookiesTest extends BaseClass {
 
         action.sendKeys(searchField, Keys.ARROW_DOWN, Keys.ENTER).perform();
         waitLong.until(ExpectedConditions.presenceOfElementLocated(By.xpath(SELECTED_ITEM_XPATH)));
+
+        System.out.println("making some conflict");
     }
 }
