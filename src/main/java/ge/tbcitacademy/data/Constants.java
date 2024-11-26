@@ -123,6 +123,41 @@ public class Constants {
     public static final String
             ALERT_BTN_ID = "alertButton";
 
+    //      JSexecutor
+    public static final String
+            TO_DO_PAGE = "http://webdriveruniversity.com/To-Do-List/index.html",
+            PRACTICE_MAGIC_DEL_BUTTON_XPATH = ".//li[normalize-space(text()) = 'Practice magic']/span",
+            PRACTICE_MAGIC_BUTTON = ".//li[normalize-space(text()) = 'Practice magic']",
+            CLICKING_THE_ELEMENT = "arguments[0].click();",
+            UNEXPECTED_ELEMENT_MSG = "Element should not be displayed",
+            ELEMENT_SUCCESSFULLY_DELETED_MSG = "Element was deleted successfully",
+            TECHLISTIC_TABLES_PAGE = "https://www.techlistic.com/2017/02/automate-demo-web-table-with-selenium.html",
+            CODE_EXAMPLE = "(.//pre[div[contains(.,'html')]] | //div[@trbidi='on']//pre/span/ancestor::div[1])",
+            SCROLL_INTO_VIEW = "arguments[0].scrollIntoView();",
+            POPULAR_TUTORIAL_TITLES_XPATH = ".//span[contains(text(), 'Popular Tutorials')]",
+            POPULAR_TUTORIAL_LINKS_XPATH = ".//a[contains(text(), 'Appium Tutorial')]//ancestor::ul//li//a",
+            SCROLL_TO_LOWEST = "window.scrollTo(0, document.body.scrollHeight)",
+            WEBDRIVER_UNI_PAGE = "http://webdriveruniversity.com/Scrolling/index.html",
+            GET_TEXT = "return arguments[0].innerText";
+
+    //      Exceptions
+    public static final String
+            QA_TOUCH_PAGE = "https://www.qatouch.com/blog/dynamic-web-elements-in-selenium/",
+            SOFTWARE_TESTING_LINK_XPATH = ".//span[@class='category-link']",
+            NON_EXISTENT_WINDOW_MSG = "window that doesn't exist",
+            MYHOME_PAGE = "https://www.myhome.ge/",
+            HELP_BTN_XPATH = ".//a[text()='დახმარება']",
+            FROM_DEVELOPERS_BTN_XPATH = ".//h4[text()='ბინები დეველოპერებისგან']",
+            SELENIUM_PAGE = "https://www.selenium.dev/selenium/web/dynamic.html",
+            RED_BOX_XPATH = "//div[@class='redbox']",
+            HEROKUAPP_DROPDOWN_PAGE = "https://the-internet.herokuapp.com/dropdown",
+            SELENIUM_FRAME_PAGE = "https://www.selenium.dev/selenium/web/click_tests/click_in_iframe.html",
+            FORUM_PAGE = "https://forum.ge/",
+            BLIZZARD_PAGE = "https://www.blizzard.com/en-us/",
+            MOBILE_BTN_XPATH = "//*[@id='product-tab-button-3']";
+
+
+
 
 
 
