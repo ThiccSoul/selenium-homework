@@ -1,4 +1,5 @@
 import baseConfig.BaseClass;
+import baseConfig.CrossBrowserTesting;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
@@ -11,9 +12,9 @@ import java.util.Map;
 
 import static ge.tbcitacademy.data.Constants.*;
 
-public class JSexecutor extends BaseClass {
+public class JSexecutor extends CrossBrowserTesting {
 
-    @Test
+    @Test(priority = 1)
     public void deleteTest() {
         driver.get(TO_DO_PAGE);
         WebElement deletePracticeMagic = driver.findElement(By.xpath(PRACTICE_MAGIC_DEL_BUTTON_XPATH));
@@ -29,7 +30,7 @@ public class JSexecutor extends BaseClass {
         }
     }
 
-    @Test
+    @Test(priority = 2)
     public void scrollTest() {
         driver.get(TECHLISTIC_TABLES_PAGE);
         List<WebElement> headingExamples = driver.findElements(By.xpath(CODE_EXAMPLE + "//preceding::h3[not(@class='title')]/span//parent::h3"));
@@ -68,7 +69,7 @@ public class JSexecutor extends BaseClass {
 
     }
 
-    @Test
+    @Test(priority = 3)
     public void anotherScrollTest() {
         driver.get(WEBDRIVER_UNI_PAGE);
 

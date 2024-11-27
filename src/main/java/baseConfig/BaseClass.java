@@ -10,6 +10,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import java.time.Duration;
 
+import static ge.tbcitacademy.data.Constants.WAIT_LONG_SECONDS;
+import static ge.tbcitacademy.data.Constants.WAIT_SHORT_MILSECONDS;
+
 public class BaseClass {
     protected WebDriver driver;
     protected JavascriptExecutor js;
@@ -24,8 +27,8 @@ public class BaseClass {
         driver.manage().window().maximize();
         action = new Actions(driver);
         js = (JavascriptExecutor) driver;
-        waitLong = new WebDriverWait(driver, Duration.ofSeconds(15));
-        shortWait = new WebDriverWait(driver, Duration.ofMillis(500));
+        waitLong = new WebDriverWait(driver, Duration.ofSeconds(WAIT_LONG_SECONDS));
+        shortWait = new WebDriverWait(driver, Duration.ofMillis(WAIT_SHORT_MILSECONDS));
     }
 
     @AfterClass
